@@ -14,6 +14,7 @@ This model is then compared to an Azure AutoML run.
 
 ## Summary
 **In 1-2 sentences, explain the problem statement: e.g "This dataset contains data about... we seek to predict..."**
+
 The dataset contains data about potential new clients for a bank. In trying to acquire new clients by the bank this data was recorded, but we seek to predict the success rate in their marketing tactic if the said client will accept conducting business with the bank.
 
 **In 1-2 sentences, explain the solution: e.g. "The best performing model was a ..."**
