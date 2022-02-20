@@ -18,6 +18,7 @@ This model is then compared to an Azure AutoML run.
 The dataset contains data about potential new clients for a bank. In trying to acquire new clients by the bank this data was recorded, but we seek to predict the success rate in their marketing tactic if the said client will accept conducting business with the bank.
 
 **In 1-2 sentences, explain the solution: e.g. "The best performing model was a ..."**
+
 Both the automl and hyperdrive methods were employed, with the former slightly having a better accuracy of 0.918, with the best performing model being the VotingEnsemble, while the latter had a maximum of 0.908 in accuracy training with Logistic Regression.
 
 ## Scikit-learn Pipeline
