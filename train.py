@@ -9,6 +9,7 @@ from sklearn.preprocessing import OneHotEncoder
 import pandas as pd
 from azureml.core.run import Run
 from azureml.data.dataset_factory import TabularDatasetFactory
+from azureml.core import Dataset
 
 def clean_data(data):
     # Dict for cleaning data
@@ -42,7 +43,7 @@ def main():
     parser = argparse.ArgumentParser()
 
     parser.add_argument('--C', type=float, default=1.0, help="Inverse of regularization strength. Smaller values cause stronger regularization")
-    parser.add_argument('--max_iter', type=int, default=100, help="Maximum number of iterations to converge")
+    parser.add_argument('--max_iter', type=int, default=1000, help="Maximum number of iterations to converge")
 
     args = parser.parse_args()
 
@@ -54,14 +55,18 @@ def main():
     # TODO: Create TabularDataset using TabularDatasetFactory
     # Data is located at:
     # "https://automlsamplenotebookdata.blob.core.windows.net/automl-sample-notebook-data/bankmarketing_train.csv"
-
-    ds = ### YOUR CODE HERE ###
+     ### YOUR CODE HERE ### 
+    ds = TabularDatasetFactory.from_delimited_files("https://automlsamplenotebookdata.blob.core.windows.net/automl-sample-notebook-data/bankmarketing_train.csv")
     
     x, y = clean_data(ds)
+    
 
     # TODO: Split data into train and test sets.
 
     ### YOUR CODE HERE ###a
+
+    x_train, x_test, y_train, y_test = train_test_split(x, y, test_size = 0.2, random_state = 50)
+    run = Run.get_context()
 
     model = LogisticRegression(C=args.C, max_iter=args.max_iter).fit(x_train, y_train)
 
